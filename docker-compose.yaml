@@ -1,0 +1,18 @@
+services:
+  first:
+    image: "nginx:st16_first"
+    build: "./test_docker/"
+    container_name: first_nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - "./test_docker/html:/usr/share/nginx/html"
+    
+  second:
+    image: "nginx:st16_first"
+    build: "./another_test_docker"
+    container_name: second_nginx
+    ports:
+      - "9090:80"
+    volumes:
+      - "./another_test_docker/html:/usr/share/nginx/html"
